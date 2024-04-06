@@ -1,4 +1,4 @@
-{% set version = '2.9.6' %}
+{% set version = "2.9.7" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,10 +10,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/BART_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/BART/BART_{{ version }}.tar.gz
-  sha256: 6e23eac476e894c0e6540eaa80e8436ea04261ce6aaac8d4f6f8f7ceeb082e0f
+  sha256: 2760dfb1f0de2bbaff119a17dde0e1f9d3bafcc158cffc537302cf12a132d596
 
 build:
-  merge_build_host: True  # [win]
+  merge_build_host: true  # [win]
   missing_dso_whitelist:
     - '*/R.dll'           # [win]
   number: 0
@@ -67,9 +67,7 @@ test:
 about:
   home: https://CRAN.R-project.org/package=BART
   license: GPL-2.0-or-later
-  summary: Bayesian Additive Regression Trees (BART) provide flexible nonparametric modeling
-    of covariates for continuous, binary, categorical and time-to-event outcomes.  For
-    more information see Sparapani, Spanbauer and McCulloch <doi:10.18637/jss.v097.i01>.
+  summary: Bayesian Additive Regression Trees (BART) provide flexible nonparametric modeling of covariates for continuous, binary, categorical and time-to-event outcomes.  For more information see Sparapani, Spanbauer and McCulloch <doi:10.18637/jss.v097.i01>.
   license_family: GPL2
   license_file:
     - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
