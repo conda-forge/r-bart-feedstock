@@ -1,4 +1,4 @@
-{% set version = "2.9.7" %}
+{% set version = "2.9.9" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/BART_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/BART/BART_{{ version }}.tar.gz
-  sha256: 2760dfb1f0de2bbaff119a17dde0e1f9d3bafcc158cffc537302cf12a132d596
+  sha256: 5b087a321427f077bf595c075b4f7538e125a9ea580fffe5b2135873853da1ca
 
 build:
   merge_build_host: true  # [win]
@@ -29,7 +29,9 @@ requirements:
     - r-nnet                     # [build_platform != target_platform]
     - r-nlme                     # [build_platform != target_platform]
     - {{ compiler('c') }}              # [not win]
+    - {{ stdlib("c") }}                # [not win]
     - {{ compiler('m2w64_c') }}        # [win]
+    - {{ stdlib("m2w64_c") }}          # [win]
     - {{ compiler('cxx') }}            # [not win]
     - {{ compiler('m2w64_cxx') }}      # [win]
     - {{ posix }}filesystem        # [win]
