@@ -43,7 +43,7 @@ requirements:
     - {{ posix }}coreutils         # [win]
     - {{ posix }}zip               # [win]
     - cross-r-base {{ r_base }}    # [build_platform != target_platform]
-    - libgomp                      # [linux]
+    - libgomp                      # [not osx]
     - llvm-openmp                  # [osx]
   host:
     - r-base
@@ -52,6 +52,7 @@ requirements:
     - r-nnet
     - r-survival
   run:
+    - libgomp  # [win]
     - r-base
     - r-rcpp >=0.12.3
     - r-nlme
