@@ -1,4 +1,4 @@
-{% set version = "2.9.9" %}
+{% set version = "2.9.10" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,12 +9,12 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/BART_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/BART/BART_{{ version }}.tar.gz
-  sha256: 5b087a321427f077bf595c075b4f7538e125a9ea580fffe5b2135873853da1ca
+  sha256: a70b64ef465e9fa6f267e1269ca9be14d39642f4c55361d57141a7d37f371e84
 
 build:
   missing_dso_whitelist:
     - '*/R.dll'           # [win]
-  number: 2
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
